@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,7 +22,7 @@
     </head>
     <body>
         <div class="container mainContainer">
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col">
                     <!-- <span class="flag-icon flag-icon-fr"></span> - 
                     <span class="flag-icon flag-icon-gb"></span> -->
@@ -31,7 +31,7 @@
 
                         </div>
                         <div class="col s12 text-center">
-                            <a href="{{ env('APP_URL') }}"><img class="header" src="{{ asset('images/logo.jpg') }}" /></a>
+                            <a href="{{ env('APP_URL') }}"><img class="header" src="{{ asset('images/logo-transparent.png') }}" /></a>
                         </div>
                     </div>
                 </div>

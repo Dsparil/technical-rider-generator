@@ -11,4 +11,9 @@ class BandController extends Controller
     {
         return view('band.list', ['bands' => Band::allOrdered()]);
     }
+
+    public function new()
+    {
+        
+    }
 }
