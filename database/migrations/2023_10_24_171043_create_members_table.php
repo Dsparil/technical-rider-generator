@@ -16,9 +16,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('band_id')->nullable(false)->constrained()->onDelete('cascade');
             $table->string('name', 100)->nullable(false);
-            $table->string('picture');
+            $table->string('picture')->nullable();
             $table->string('role', 50)->nullable(false);
-            $table->string('allergies', 255);
+            $table->string('allergies', 255)->nullable();
             $table->timestamps();
         });
     }

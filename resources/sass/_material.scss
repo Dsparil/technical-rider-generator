@@ -1,0 +1,182 @@
+// Drop this file in resources/sass/ and put a "@import 'material-design';" into your app.scss
+
+// Head workarounds
+$roboto-font-path    : '~mdbootstrap/font/roboto/' !default;
+$image-path          : '~mdbootstrap/img' !default;
+$font-awesome-family : 'Font Awesome 5 Pro', 'Font Awesome 5 Free', sans-serif;
+
+// Library import
+@import '~mdbootstrap/scss/mdb-free';
+
+// Addon imports
+@import '~mdbootstrap/scss/addons/datatables';
+@import '~mdbootstrap/scss/addons/datatables-select';
+// Here comes any addon you need
+
+// Tail workarounds
+
+// Use Font Awesome configured family. This allows using Font Awesome 5 Pro if you've paid for it
+table.dataTable thead {
+    .sorting:before, .sorting_asc:before, .sorting_desc:before, .sorting_asc_disabled:before, .sorting_desc_disabled:before {
+        font-family : $font-awesome-family;
+    }
+
+    .sorting:after, .sorting_asc:after, .sorting_desc:after, .sorting_asc_disabled:after, .sorting_desc_disabled:after {
+        font-family : $font-awesome-family;
+    }
+}
+
+ul.stepper {
+    .step {
+        &.done:before {
+            font-family : $font-awesome-family;
+        }
+
+        &.wrong:before {
+            font-family : $font-awesome-family;
+        }
+    }
+}
+
+@media only screen and (min-width : 993px) {
+    ul.stepper.horizontal {
+        .step {
+            &.done .step-title:before {
+                font-family : $font-awesome-family;
+            }
+
+            &.wrong .step-title:before {
+                font-family : $font-awesome-family;
+            }
+        }
+    }
+}
+
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc_disabled:before {
+    font-family : $font-awesome-family;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+    font-family : $font-awesome-family;
+}
+
+.picker__box {
+    .picker__header {
+        .picker__nav--prev:before, .picker__nav--next:before {
+            font-family : $font-awesome-family;
+        }
+    }
+}
+
+// End of tail workarounds
+
+// Extras. Feel free to remove if not needed/wanted
+
+// Switches with colors. Add switch-... classes to the example in the MDB website
+// Examples: <div class="switch switch-danger-checked switch-success-unchecked">...</div>
+// or just: <div class="switch switch-info">...</div>
+.switch {
+    &.switch-info, &.switch-info-checked {
+        label input[type='checkbox'] {
+            &:checked:not(:disabled) + .lever {
+                background-color : desaturate(lighten($info-color, 25%), 25%);
+            }
+
+            &:checked:not(:disabled) + .lever:after {
+                background-color : $info-color;
+            }
+        }
+    }
+
+    &.switch-info-unchecked {
+        label input[type='checkbox'] {
+            &:not(:checked):not(:disabled) + .lever {
+                background-color : desaturate(lighten($info-color, 25%), 25%);
+            }
+
+            &:not(:checked):not(:disabled) + .lever:after {
+                background-color : $info-color;
+            }
+        }
+    }
+
+    &.switch-success, &.switch-success-checked {
+        label input[type='checkbox'] {
+            &:checked:not(:disabled) + .lever {
+                background-color : desaturate(lighten($success-color, 25%), 25%);
+            }
+
+            &:checked:not(:disabled) + .lever:after {
+                background-color : $success-color;
+            }
+        }
+    }
+
+    &.switch-success-unchecked {
+        label input[type='checkbox'] {
+            &:not(:checked):not(:disabled) + .lever {
+                background-color : desaturate(lighten($success-color, 25%), 25%);
+            }
+
+            &:not(:checked):not(:disabled) + .lever:after {
+                background-color : $success-color;
+            }
+        }
+    }
+
+    &.switch-warning, &.switch-warning-checked {
+        label input[type='checkbox'] {
+            &:checked:not(:disabled) + .lever {
+                background-color : desaturate(lighten($warning-color, 25%), 25%);
+            }
+
+            &:checked:not(:disabled) + .lever:after {
+                background-color : $warning-color;
+            }
+        }
+    }
+
+    &.switch-warning-unchecked {
+        label input[type='checkbox'] {
+            &:not(:checked):not(:disabled) + .lever {
+                background-color : desaturate(lighten($warning-color, 25%), 25%);
+            }
+
+            &:not(:checked):not(:disabled) + .lever:after {
+                background-color : $warning-color;
+            }
+        }
+    }
+
+    &.switch-danger, &.switch-danger-checked {
+        label input[type='checkbox'] {
+            &:checked:not(:disabled) + .lever {
+                background-color : desaturate(lighten($danger-color, 25%), 25%);
+            }
+
+            &:checked:not(:disabled) + .lever:after {
+                background-color : $danger-color;
+            }
+        }
+    }
+
+    &.switch-danger-unchecked {
+        label input[type='checkbox'] {
+            &:not(:checked):not(:disabled) + .lever {
+                background-color : desaturate(lighten($danger-color, 25%), 25%);
+            }
+
+            &:not(:checked):not(:disabled) + .lever:after {
+                background-color : $danger-color;
+            }
+        }
+    }
+}

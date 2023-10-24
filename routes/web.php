@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\{BandController, RiderController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [BandController::class, 'list'])->name('band.list');
+Route::get('/rider/{bandId}/list', [RiderController::class, 'list'])->name('rider.list');
+
+Route::get('/js/js-vars.js', function() {
+    $content = view('js-vars');
+    return response($content)->header('Content-Type', 'application/javascript');
+})->name('js-vars');

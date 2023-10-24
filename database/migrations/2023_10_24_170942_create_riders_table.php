@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('band_id')->nullable(false)->constrained()->onDelete('cascade');
             $table->string('title', 100)->nullable(false);
-            $table->string('font', 50);
+            $table->string('font', 50)->nullable();
             $table->timestamps();
         });
     }

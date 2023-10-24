@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('maps', function (Blueprint $table) {
             $table->id();
             $table->foreignId('rider_id')->nullable(false)->constrained()->onDelete('cascade');
-            $table->string('background_picture');
+            $table->string('background_picture')->nullable();
             $table->timestamps();
         });
     }

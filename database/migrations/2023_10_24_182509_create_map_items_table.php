@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('map_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('map_id')->nullable(false)->constrained()->onDelete('cascade');
-            $table->foreignId('item_id')->constrained()->onDelete('cascade');
-            $table->foreignId('member_id')->constrained()->onDelete('cascade');
+            $table->foreignId('item_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('member_id')->nullable()->constrained()->onDelete('cascade');
             $table->float('coord_x')->nullable(false);
             $table->float('coord_y')->nullable(false);
             $table->float('scale')->nullable(false)->default(1);

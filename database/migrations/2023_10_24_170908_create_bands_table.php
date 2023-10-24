@@ -15,17 +15,17 @@ return new class extends Migration
         Schema::create('bands', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
-            $table->string('logo');
-            $table->string('style', 100);
-            $table->string('birth_year', 10);
-            $table->string('location', 255);
-            $table->string('label', 100);
-            $table->string('description');
-            $table->string('staff');
-            $table->string('spoken_languages');
-            $table->string('link_fb');
-            $table->string('link_ig');
-            $table->string('link_yt');
+            $table->string('logo')->nullable();
+            $table->string('style', 100)->nullable();
+            $table->string('birth_year', 10)->nullable();
+            $table->string('location', 255)->nullable();
+            $table->string('label', 100)->nullable();
+            $table->string('description')->nullable();
+            $table->string('staff')->nullable();
+            $table->string('spoken_languages')->nullable();
+            $table->string('link_fb')->nullable();
+            $table->string('link_ig')->nullable();
+            $table->string('link_yt')->nullable();
             $table->timestamps();
         });
     }
