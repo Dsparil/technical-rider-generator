@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
-            $table->string('picture')->nullable(false);
+            $table->string('picture')->nullable(true);
             $table->enum('item_type', Item::ENUM)->nullable(false);
             $table->timestamps();
         });

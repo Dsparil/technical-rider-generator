@@ -1,16 +1,13 @@
 // Drop this file in resources/sass/ and put a "@import 'material-design';" into your app.scss
 
 // Head workarounds
-$roboto-font-path    : '~mdbootstrap/font/roboto/' !default;
-$image-path          : '~mdbootstrap/img' !default;
+$roboto-font-path    : '~mdb-ui-kit/font/roboto/' !default;
+$image-path          : '~mdb-ui-kit/img' !default;
 $font-awesome-family : 'Font Awesome 5 Pro', 'Font Awesome 5 Free', sans-serif;
 
 // Library import
-@import '~mdbootstrap/scss/mdb-free';
+@import '~mdb-ui-kit/src/scss/mdb.free';
 
-// Addon imports
-@import '~mdbootstrap/scss/addons/datatables';
-@import '~mdbootstrap/scss/addons/datatables-select';
 // Here comes any addon you need
 
 // Tail workarounds

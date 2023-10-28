@@ -18,5 +18,7 @@ mix.webpackConfig({
 }).js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .copy('resources/images/*', 'public/images')
+    .copy('resources/js/crudobject.js', 'public/js')
+    .copy('resources/js/init_members.js', 'public/js')
     .copyDirectory('node_modules/tinymce', 'public/js/tinymce')
     .sourceMaps();

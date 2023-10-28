@@ -4,7 +4,7 @@
 <div class="row">
 @foreach ($bands as $band)
     <div class="card border-dark mx-5" style="width: 15rem; height: 16rem;">
-        <img class="card-img-top" src="{{ url('storage/logos/min/'.$band->logo) }}" style="object-fit:contain; height: 10rem;" />
+        <img class="card-img-top" src="{{ url('storage/logos/'.$band->logo) }}" style="object-fit:contain; height: 10rem;" />
 
         <div class="card-body text-dark">
             <h5 class="card-title">{{ $band->name }}</h5>

@@ -168,6 +168,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Barryvdh\Snappy\ServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -183,6 +184,11 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'File'        => Illuminate\Support\Facades\File::class,
+        //'PDF'         => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'PDF'         => Barryvdh\DomPDF\Facade::class,
+        'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
+        'WKPDF'       => NahidulHasan\Html2pdf\Facades\Pdf::class,
     ])->toArray(),
 
 ];

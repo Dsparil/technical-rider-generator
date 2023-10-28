@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('rider_id')->nullable(false)->constrained()->onDelete('cascade');
             $table->foreignId('member_id')->nullable(false)->constrained()->onDelete('cascade');
             $table->enum('section', Stuff::ENUM)->nullable(false);
-            $table->string('label', 50)->nullable(false);
+            $table->string('label', 50)->nullable(true);
             $table->string('content')->nullable(false);
             $table->timestamps();
         });

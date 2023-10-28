@@ -18,11 +18,13 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
         <script type="text/javascript" src="{{ route('js-vars') }}"></script>
         <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/crudobject.js') }}"></script>
         <title>@yield('title')</title>
     </head>
     <body>
         <div class="container mainContainer">
-            <div class="row mb-5">
+            <div class="row">
                 <div class="col">
                     <!-- <span class="flag-icon flag-icon-fr"></span> - 
                     <span class="flag-icon flag-icon-gb"></span> -->
@@ -36,6 +38,9 @@
                     </div>
                 </div>
             </div>
+            @if(isset($page))
+                @include('navbar', ['page' => $page])
+            @endif
             @yield('content')
         </div>
     </body>

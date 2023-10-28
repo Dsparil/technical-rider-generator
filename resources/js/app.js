@@ -1,8 +1,11 @@
+import 'fabric';
+
 window.$ = window.jQuery = require('jquery');
 window._ = require('lodash');
 
 try {
-    require('bootstrap');
+    //require('bootstrap');
+    window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
 } catch (e) {
     console.error('Could not load Bootstrap JS');
 }
