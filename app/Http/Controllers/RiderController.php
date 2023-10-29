@@ -11,8 +11,6 @@ use App\Models\Section;
 use App\Models\Stuff;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
-use File;
-// use PDF;
 
 class RiderController extends Controller
 {
@@ -73,17 +71,6 @@ class RiderController extends Controller
         return $pdf->download($rider->band->name.'_rider_'.date('Ymd').'.pdf');
     }
 
-    /*
-    public function download(?int $riderId)
-    {
-        $rider = Rider::findOrFail($riderId);
-
-        $pdf = PDF::loadView('rider.pdf', ['rider' => $rider]);
-
-        return $pdf->download($rider->band->name.'_rider_'.date('Ymd'));
-    }
-    */
-
     public function edit(?int $riderId, Request $request)
     {
         $rider = Rider::findOrFail($riderId);
@@ -94,7 +81,7 @@ class RiderController extends Controller
             return back();
         }
 
-        $activeTab = 'scenemap';
+        $activeTab = 'patchlist';
 
         return view('rider.edit', [
             'activeTab' => $activeTab,

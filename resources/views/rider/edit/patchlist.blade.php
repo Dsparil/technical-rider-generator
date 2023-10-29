@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col">
         <h3>Patchlist</h3>
-        <div class="row" data-patchlist="{{ $patchlist->toJson() }}">
+        <div class="row" data-patchlist="{{ $rider->patchlists->toJson() }}">
             <div class="col-12">
                 <div class="card mr-2 mb-2 bg-white">
                     <div class="card-header bg-dark text-white">
@@ -70,16 +70,35 @@
 
         document.$patchlist = $.extend($('[data-patchlist]'), crudObject, {
             deleteButtonBelow: false,
-            attributeName: 'data-patchlist',
-            objectName:    'patchlist',
-            colClass:      'col-12',
-            fieldList:     [
+            movable:           true,
+            attributeName:     'data-patchlist',
+            objectName:        'patchlist',
+            colClass:          'col-12',
+            fieldList:         [
                 'number',
                 'member_id',
                 'instrument',
                 'microphone',
                 'microphone_stand'
             ],
+
+            renumber: function() {
+                let items = this.getItems();
+
+                for (let idx in items) {
+                    items[idx].number = parseInt(idx) + 1;
+                }
+
+                this.setItems(items);
+            },
+
+            moveUp: function(id) {
+                this.renumber();
+            },
+
+            moveDown: function(id) {
+                this.renumber();
+            },
 
             getCardContent: function(item) {
                 return `

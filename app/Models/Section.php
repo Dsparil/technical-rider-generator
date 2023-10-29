@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Section extends AbstractModelSaveProcess
 {
@@ -18,5 +19,10 @@ class Section extends AbstractModelSaveProcess
     public static function byRider(Rider $rider)
     {
         return self::where('rider_id', '=', $rider->id)->get();
+    }
+
+    public function rider(): BelongsTo
+    {
+        return $this->belongsTo(Rider::class);
     }
 }

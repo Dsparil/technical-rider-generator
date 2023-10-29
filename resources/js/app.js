@@ -9,6 +9,7 @@ try {
 } catch (e) {
     console.error('Could not load Bootstrap JS');
 }
+import {arrayMoveImmutable} from 'array-move';
 
 // require('mdbootstrap/js/mdb');
 import 'jquery-ui/ui/widgets/draggable.js';
