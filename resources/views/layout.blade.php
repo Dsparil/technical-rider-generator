@@ -29,9 +29,6 @@
                     <!-- <span class="flag-icon flag-icon-fr"></span> - 
                     <span class="flag-icon flag-icon-gb"></span> -->
                     <div class="row">
-                        <div class="card">
-
-                        </div>
                         <div class="col s12 text-center">
                             <a href="{{ env('APP_URL') }}"><img class="header" src="{{ asset('images/logo-transparent.png') }}" /></a>
                         </div>

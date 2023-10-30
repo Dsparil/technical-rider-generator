@@ -6,8 +6,8 @@
 </div>
 <div class="row">
 @foreach ($riders as $rider)
-    <div class="col-sm-3">
-        <div class="card mr-2 mb-2 bg-white" style="width: 18rem; height: 18rem;">
+    <div class="col-sm-6 col-lg-3 mb-2">
+        <div class="card bg-white" style="height: 18rem;">
             <div class="card-header bg-dark text-white">
                 <h5 class="card-title">{{ $rider->title }}</h5>
             </div>
@@ -23,8 +23,8 @@
     </div>
 @endforeach
 
-    <div class="col-sm-3">
-        <div class="card mr-2 mb-2 bg-white" style="width: 18rem; height: 18rem;">
+    <div class="col-sm-6 col-lg-3">
+        <div class="card bg-white" style="height: 18rem;">
             <div class="card-header bg-dark text-white">
                 <h5 class="card-title">Nouvelle fiche technique</h5>
             </div>

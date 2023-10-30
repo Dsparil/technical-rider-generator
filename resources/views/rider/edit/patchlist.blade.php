@@ -11,22 +11,22 @@
                     <div class="card-body">
                         <div class="form-group mb-3">
                             <div class="row">
-                                <div class="col-1">
+                                <div class="col-lg-1 col-sm-6">
                                     <label class="w-100">Numéro : <input type="number" data-name="patchlist_number" class="form-control" /></label>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-lg-2 col-sm-6">
                                     <label class="w-100">Membre : <span class="members_selectbox" data-field="new-member_id" data-object-name="patchlist"></span></label>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-lg-3 col-sm-12">
                                     <label class="w-100">Instrument : <input type="text" data-name="patchlist_instrument" class="form-control" /></label>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-lg-2 col-sm-12">
                                     <label class="w-100">Type de micro : <input type="text" data-name="patchlist_microphone" class="form-control" /></label>
                                 </div>
-                                <div class="col-1">
+                                <div class="col-lg-1 col-sm-6">
                                     <label class="w-100">Fond : <input type="color" data-name="patchlist_microphone" class="form-control" value="#FFFFFF" /></label>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-lg-2 col-sm-6">
                                     <label class="w-100">Taille du stand de micro : <span class="micstand_selectbox" data-field="new-microphone_stand" data-object-name="patchlist"></span></label>
                                 </div>
                                 <div class="col-1">
@@ -112,22 +112,22 @@
                 }
 
                 return `
-                <div class="col-1">
+                <div class="col-lg-1 col-sm-6">
                     <label class="w-100">Numéro : <input type="number" name="${this.getInputName(item, 'number')}" class="form-control" value="${item.number}" /></label>
                 </div>
-                <div class="col-2">
+                <div class="col-lg-2 col-sm-6">
                     <label class="w-100">Membre : ${document.getMembersSelectBox(this, 'member_id', item, item.member_id, this.objectName)}</label>
                 </div>
-                <div class="col-3">
+                <div class="col-lg-3 col-sm-12">
                     <label class="w-100">Instrument : <input type="text" name="${this.getInputName(item, 'instrument')}" class="form-control" value="${item.instrument}" /></label>
                 </div>
-                <div class="col-2">
+                <div class="col-lg-2 col-sm-12">
                     <label class="w-100">Type de micro : <input type="text" name="${this.getInputName(item, 'microphone')}" class="form-control" value="${item.microphone}" /></label>
                 </div>
-                <div class="col-1">
+                <div class="col-lg-1 col-sm-6">
                     <label class="w-100">Fond : <input type="color" name="${this.getInputName(item, 'color')}" class="form-control" value="${item.color}"/></label>
                 </div>
-                <div class="col-2">
+                <div class="col-lg-2 col-sm-6">
                     <label class="w-100">Taille du stand de micro : ${document.getPatchlistStandSelectBox(this, 'microphone_stand', item, item.microphone_stand, this.objectName)}</label>
                 </div>
                 `;
