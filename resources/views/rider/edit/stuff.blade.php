@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col">
         <h3>Matériel</h3>
-        <div class="row" data-stuff="{{ $stuff->toJson() }}">
+        <div class="row" data-stuff="{{ $rider->stuff->toJson() }}">
             <div class="col-lg-6">
                 <div class="card mr-2 mb-2 bg-white">
                     <div class="card-header bg-dark text-white">

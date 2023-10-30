@@ -1,9 +1,10 @@
 <div class="row">
     <div class="col">
         <h3>Patchlist</h3>
-        <div class="row" data-patchlist="{{ $rider->patchlists->toJson() }}">
+        <div class="row" data-patchlist="{{ $rider->patchlists->toJson() }}" data-colorlist="{{ json_encode(App\Models\Patchlist::COLORS) }}">
             <div class="col-12">
                 <div class="card mr-2 mb-2 bg-white">
+                    <a name="newItem"></a>
                     <div class="card-header bg-dark text-white">
                         <h5 class="card-title">Nouvelle entrée</h5>
                     </div>
@@ -19,14 +20,17 @@
                                 <div class="col-3">
                                     <label class="w-100">Instrument : <input type="text" data-name="patchlist_instrument" class="form-control" /></label>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-2">
                                     <label class="w-100">Type de micro : <input type="text" data-name="patchlist_microphone" class="form-control" /></label>
+                                </div>
+                                <div class="col-1">
+                                    <label class="w-100">Fond : <input type="color" data-name="patchlist_microphone" class="form-control" value="#FFFFFF" /></label>
                                 </div>
                                 <div class="col-2">
                                     <label class="w-100">Taille du stand de micro : <span class="micstand_selectbox" data-field="new-microphone_stand" data-object-name="patchlist"></span></label>
                                 </div>
                                 <div class="col-1">
-                                    <a href="#" class="btn btn-sm btn-primary newItem mt-4">Ajouter</a>
+                                    <a href="#newItem" class="btn btn-sm btn-primary newItem mt-4">Ajouter</a>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +83,8 @@
                 'member_id',
                 'instrument',
                 'microphone',
-                'microphone_stand'
+                'microphone_stand',
+                'color'
             ],
 
             renumber: function() {
@@ -101,6 +106,11 @@
             },
 
             getCardContent: function(item) {
+                console.log(item.color);
+                if (item.color === null) {
+                    item.color = '#FFFFFF';
+                }
+
                 return `
                 <div class="col-1">
                     <label class="w-100">Numéro : <input type="number" name="${this.getInputName(item, 'number')}" class="form-control" value="${item.number}" /></label>
@@ -111,8 +121,11 @@
                 <div class="col-3">
                     <label class="w-100">Instrument : <input type="text" name="${this.getInputName(item, 'instrument')}" class="form-control" value="${item.instrument}" /></label>
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     <label class="w-100">Type de micro : <input type="text" name="${this.getInputName(item, 'microphone')}" class="form-control" value="${item.microphone}" /></label>
+                </div>
+                <div class="col-1">
+                    <label class="w-100">Fond : <input type="color" name="${this.getInputName(item, 'color')}" class="form-control" value="${item.color}"/></label>
                 </div>
                 <div class="col-2">
                     <label class="w-100">Taille du stand de micro : ${document.getPatchlistStandSelectBox(this, 'microphone_stand', item, item.microphone_stand, this.objectName)}</label>

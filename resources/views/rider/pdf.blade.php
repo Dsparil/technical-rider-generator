@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta content="text/html;charset=utf-8" http-equiv="Content-Type" /> 
-        <meta content="utf-8" http-equiv="encoding" />
-        <title>Fiche technique Muertissima</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+        <meta http-equiv="encoding" content="utf-8" />
+        <title>Fiche technique {{ $rider->band->name }}</title>
         <style type="text/css">
             body {
                 font-family: sans-serif;
@@ -31,81 +31,60 @@
                 width: 100%;
                 font-size: 12px;
             }
+            table tr td {
+                vertical-align: top;
+            }
             .even {
                 background: #eee;
             }
         </style>
     </head>
-    @php
-        $bandLogo = Illuminate\Support\Facades\Storage::get('public/logos/'.$rider->band->logo);
-        $type = pathinfo($rider->band->logo, PATHINFO_EXTENSION);
-        $base64Logo = 'data:image/' . $type . ';base64,' . base64_encode($bandLogo);
-    @endphp
     <body>
         <footer>
-            <img src="{{ $base64Logo }}" height="30px" style="margin-top: 12px" /> - Fiche technique - Copyright &copy; {{ date("Y") }} Simon PERRIN
+            {{ $rider->band->name }} - Fiche technique - Copyright &copy; {{ date("Y") }} Simon PERRIN
         </footer>
 
         <main>
             <center>
-                <img src="{{ $base64Logo }}" height="50%" />
+                <img src="{{ $rider->band->base64Logo() }}" height="50%" />
                 <br />
                 <br />
                 <h1>Fiche technique</h1>
-                <p>Générée le : {{ date('Y-m-d H:i:s') }}</p>
+                <p>Générée par GTRG le : {{ date('Y-m-d H:i:s') }}</p>
             </center>
 
             <div class="pageBreak"></div>
 
             <h1>Présentation générale</h1>
-            // TODO //
-            <h3>Membres</h3>
-            
-            <table style="text-align: center;">
-                <tr>
-                    @foreach($rider->band->members as $member)
-                        @php
-                            $picture = Illuminate\Support\Facades\Storage::get('public/members/'.basename($member->picture));
-                            $type = pathinfo($rider->band->logo, PATHINFO_EXTENSION);
-                            $base64Picture = 'data:image/' . $type . ';base64,' . base64_encode($picture);
-                        @endphp
-                    <td><img src="{{ $base64Picture }}" style="width: 100px" /></td>
-                    @endforeach
-                </tr>
-                <tr>
-                    @foreach($rider->band->members as $member)
-                        <td><strong>{{ $member->name }}</strong> : {{ $member->role }}</td>
-                    @endforeach
-                </tr>
-            </table>
+            @include('rider.pdf.presentation')
 
-            <h3>Staff et accompagnateurs</h3>
-            // TODO //
-            <h3>Langue d'échange</h3>
-            // TODO //
-            <br />
-            <br />
-            // TODO //
+            @if (count($rider->sections) > 0)
+                <div class="pageBreak"></div>
 
-            <div class="pageBreak"></div>
+                <h1>Rider</h1>
+                @include('rider.pdf.sections')
+            @endif
 
-            <h1>Rider</h1>
-            @include('rider.pdf.sections')
+            @if (count($rider->stuff) > 0)
+                <div class="pageBreak"></div>
 
-            <div class="pageBreak"></div>
+                <h1>Matériel</h1>
+                @include('rider.pdf.stuff')
+            @endif
 
-            <h1>Matériel</h1>
-            @include('rider.pdf.stuff')
+            @if (count($rider->patchlists) > 0)
+                <div class="pageBreak"></div>
 
-            <div class="pageBreak"></div>
+                <h1>Patchlist</h1>
+                @include('rider.pdf.patchlist')
+            @endif
 
-            <h1>Patchlist</h1>
-            @include('rider.pdf.patchlist')
+            @if(!empty($rider->scene_map_snapshot))
+                <div class="pageBreak"></div>
 
-            <div class="pageBreak"></div>
-
-            <h1>Plan de scène</h1>
-            <img src="{!! $rider->scene_map_snapshot !!}" style="width: 100%" />
+                <h1>Plan de scène</h1>
+                <img src="{!! $rider->scene_map_snapshot !!}" style="width: 100%" />
+            @endif
         </main>
     </body>
 </html>

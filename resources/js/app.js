@@ -2,6 +2,7 @@ import 'fabric';
 
 window.$ = window.jQuery = require('jquery');
 window._ = require('lodash');
+require('tinycolorpicker');
 
 try {
     //require('bootstrap');
@@ -9,7 +10,8 @@ try {
 } catch (e) {
     console.error('Could not load Bootstrap JS');
 }
-import {arrayMoveImmutable} from 'array-move';
+
+
 
 // require('mdbootstrap/js/mdb');
 import 'jquery-ui/ui/widgets/draggable.js';

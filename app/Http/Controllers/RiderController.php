@@ -86,7 +86,6 @@ class RiderController extends Controller
         return view('rider.edit', [
             'activeTab' => $activeTab,
             'rider'     => $rider,
-            'patchlist' => Patchlist::byRider($rider),
             'stuff'     => Stuff::byRider($rider),
             'sections'  => Section::byRider($rider),
             'items'     => Item::getAllOrdered(),

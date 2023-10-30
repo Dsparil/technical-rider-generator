@@ -42,8 +42,6 @@ var crudObject = {
     deleteItemById: function(id) {
         let items = this.getItems();
         let idx = this.getFirstIdxBy('id', id);
-        
-        console.log('idx =', idx, 'items =', items);
 
         if (idx !== null) {
             items.splice(idx, 1);
@@ -127,9 +125,6 @@ var crudObject = {
             let idx     = this.getFirstIdxBy('id', id);
             let items   = this.getItems();
 
-            console.log('MOVE UP ', idx);
-            console.log('ITEMS =', items);
-
             if (idx === null || idx == 0) {
                 return;
             }
@@ -149,20 +144,13 @@ var crudObject = {
             let idx     = this.getFirstIdxBy('id', id);
             let items   = this.getItems();
 
-            console.log('MOVE DOWN ', idx);
-            console.log('ITEMS =', items);
-
             if (idx === null || idx >= items.length - 1) {
                 return;
             }
 
-            console.log('idx =', idx, 'items =', items);
-
             let tmp        = items[idx + 1];
             items[idx + 1] = items[idx];
             items[idx]     = tmp;
-
-            console.log('items =', items);
 
             this.setItems(items);
 
@@ -219,12 +207,12 @@ var crudObject = {
         }
 
         let btnMoveUp   = '';
-        let btnDelete   = `<a href="#" class="btn btn-sm btn-danger deleteItem ${btnClass}" ${btnStyle}>Suppr.</a>`;
+        let btnDelete   = `<a href="javascript:void(0);" class="btn btn-sm btn-danger deleteItem ${btnClass}" ${btnStyle}>Suppr.</a>`;
         let btnMoveDown = '';
 
         if (this.movable) {
-            btnMoveUp   = `<a href="#" class="btn btn-sm btn-warning moveUpItem ${btnClass}" ${btnStyle}>Monter</a>`;
-            btnMoveDown = `<a href="#" class="btn btn-sm btn-warning moveDownItem ${btnClass}" ${btnStyle}>Descendre</a>`;
+            btnMoveUp   = `<a href="javascript:void(0);" class="btn btn-sm btn-warning moveUpItem ${btnClass}" ${btnStyle}>Monter</a>`;
+            btnMoveDown = `<a href="javascript:void(0);" class="btn btn-sm btn-warning moveDownItem ${btnClass}" ${btnStyle}>Descendre</a>`;
         }
 
         return `<span>

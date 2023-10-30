@@ -21,6 +21,14 @@ class Patchlist extends AbstractModelSaveProcess
         self::MIC_STAND_TALL,
     ];
 
+    public const COLORS = [
+        '#CCFFFF',
+        '#99FFFF',
+        '#FFFF66',
+        '#FFFFCC',
+        '#CCCCFF',
+    ];
+
     use HasFactory;
 
     public function fillFromForm(array $data, string $id)
@@ -30,6 +38,7 @@ class Patchlist extends AbstractModelSaveProcess
         $this->instrument       = $data['instrument'];
         $this->microphone       = $data['microphone'];
         $this->microphone_stand = $data['microphone_stand'];
+        $this->color            = $data['color'];
     }
 
     public static function byRider(Rider $rider)
@@ -39,14 +48,28 @@ class Patchlist extends AbstractModelSaveProcess
             ->get();
     }
 
-    public static function enumValues()
+    public static function enumValues(): array
     {
         return [
-            self::MIC_STAND_NONE   => 'Aucun',
+            self::MIC_STAND_NONE   => 'Aucun / Pince',
             self::MIC_STAND_SMALL  => 'Petit',
             self::MIC_STAND_MEDIUM => 'Moyen',
             self::MIC_STAND_TALL   => 'Grand',
         ];
+    }
+
+    public function getMicStand(): string
+    {
+        $values = self::enumValues();
+
+        return $values[$this->microphone_stand] ?? '';
+    }
+
+    public static function enumValue($index): string
+    {
+        $values = self::enumValues();
+
+        return $values[$index] ?? '';
     }
 
     public function rider(): BelongsTo

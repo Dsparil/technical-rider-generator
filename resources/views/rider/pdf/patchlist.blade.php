@@ -7,12 +7,12 @@
         <th>Pied de micro</th>
     </tr>
     @foreach($rider->patchlists as $patch)
-    <tr>
+    <tr style="background-color: {{ $patch->color }};">
         <td>{{ $patch->number }}</td>
         <td>{{ $patch->member->name }}</td>
         <td>{{ $patch->instrument }}</td>
         <td>{{ $patch->microphone }}</td>
-        <td>{{ $patch->microphone_stand }}</td>
+        <td>{{ $patch->getMicStand() }}</td>
     </tr>
     @endforeach
 </table>

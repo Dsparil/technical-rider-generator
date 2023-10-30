@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BandController::class, 'list'])->name('band.list');
 Route::get('/band/new', [BandController::class, 'new'])->name('band.new');
+Route::match(['get', 'post'], '/band/{bandId}/edit', [BandController::class, 'edit'])->name('band.edit');
 
 Route::get('/rider/{bandId}/list', [RiderController::class, 'list'])->name('rider.list');
 Route::post('/rider/{bandId}/new', [RiderController::class, 'new'])->name('rider.new');

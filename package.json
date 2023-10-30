@@ -22,14 +22,12 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
-        "array-move": "^4.0.0",
         "chart.js": "^3.7.0",
         "fabric": "^5.3.0",
-        "flag-icon": "^2.5.0",
-        "flag-icon-css": "^4.1.7",
         "jquery": "^3.6.0",
         "mdb-ui-kit": "^6.4.2",
         "popper.js": "^1.16.1",
+        "tinycolorpicker": "^0.9.5",
         "tinymce": "^5.10.2"
     }
 }
