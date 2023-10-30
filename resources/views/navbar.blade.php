@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg">
-    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#bandMenu" aria-controls="bandMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bandMenu" aria-controls="bandMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
