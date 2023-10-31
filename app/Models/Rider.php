@@ -39,4 +39,15 @@ class Rider extends Model
     {
         return $this->hasMany(Stuff::class);
     }
+
+    public function hasSceneMap(): bool
+    {
+        $data = json_decode($this->scene_map_json, true);
+
+        if (isset($data['objects']) && is_array($data['objects']) && count($data['objects']) > 0) {
+            return true;
+        }
+
+        return false;
+    }
 }

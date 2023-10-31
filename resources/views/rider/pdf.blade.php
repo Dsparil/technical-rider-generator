@@ -79,7 +79,7 @@
                 @include('rider.pdf.patchlist')
             @endif
 
-            @if(!empty($rider->scene_map_snapshot))
+            @if(!empty($rider->hasSceneMap()))
                 <div class="pageBreak"></div>
 
                 <h1>Plan de scène</h1>
