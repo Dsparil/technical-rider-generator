@@ -8,8 +8,10 @@
         @foreach(App\Models\Stuff::enumValues() as $sectionCode => $stuffSection)
         <td style="vertical-align: top;">
             @foreach($rider->stuff->filter->isSection($sectionCode) as $stuffItem)
-                <h4>{{ $stuffItem->label ?? $stuffItem->member->name.' : '.$stuffItem->member->role }}</h4>
-                {!! $stuffItem->content !!}
+                @if (!empty($stuffItem->content))
+                    <h4>{{ $stuffItem->label ?? $stuffItem->member->name.' : '.$stuffItem->member->role }}</h4>
+                    {!! $stuffItem->content !!}
+                @endif
             @endforeach
         </td>
         @endforeach
