@@ -134,7 +134,7 @@
                     <label class="w-100">Taille du stand de micro : ${document.getPatchlistStandSelectBox(this, 'microphone_stand', item, item.microphone_stand, this.objectName)}</label>
                 </div>
                 <div class="col-lg-1 col-sm-6">
-                    <label class="w-100">Insert : <input type="text" data-name="${this.getInputName(item, 'effect_insert')}" class="form-control" value="${item.effect_insert}" /></label>
+                    <label class="w-100">Insert : <input type="text" data-name="${this.getInputName(item, 'effect_insert')}" class="form-control" value="${(item.effect_insert !== null)? item.effect_insert : ''}" /></label>
                 </div>
                 `;
             }
