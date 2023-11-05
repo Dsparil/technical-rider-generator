@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('instrument', 100)->nullable(false);
             $table->string('microphone', 50)->nullable(false);
             $table->enum('microphone_stand', Patchlist::ENUM)->nullable(false);
+            $table->string('effect_insert', 20)->nullable(true);
             $table->string('color', 10)->nullable(true);
             $table->timestamps();
         });

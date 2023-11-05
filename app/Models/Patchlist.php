@@ -38,6 +38,7 @@ class Patchlist extends AbstractModelSaveProcess
         $this->instrument       = $data['instrument'];
         $this->microphone       = $data['microphone'];
         $this->microphone_stand = $data['microphone_stand'];
+        $this->effect_insert    = $data['effect_insert'];
         $this->color            = $data['color'];
     }
 
