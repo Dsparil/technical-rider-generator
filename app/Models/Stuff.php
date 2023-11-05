@@ -57,6 +57,6 @@ class Stuff extends AbstractModelSaveProcess
 
     public function isSection(string $sectionCode): bool
     {
-        return $this->section_code == $sectionCode;
+        return $this->section == $sectionCode;
     }
 }
