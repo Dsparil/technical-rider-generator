@@ -1,13 +1,17 @@
+@php
+    $allStuff    = $rider->getAllStuff();
+    $allSections = App\Models\Stuff::enumValues()
+@endphp
 <table border="1">
     <tr>
-        @foreach(App\Models\Stuff::enumValues() as $stuffSection)
-        <th style="width: {{ abs(100 / count(App\Models\Stuff::enumValues())) }}%">{{ $stuffSection }}</th>
+        @foreach(array_keys($allStuff) as $section)
+        <th style="width: {{ abs(100 / count($allStuff)) }}%">{{ $allSections[$section] }}</th>
         @endforeach
     </tr>
     <tr>
-        @foreach(App\Models\Stuff::enumValues() as $sectionCode => $stuffSection)
+        @foreach($allStuff as $stuffSection)
         <td style="vertical-align: top;">
-            @foreach($rider->stuff->filter->isSection($sectionCode) as $stuffItem)
+            @foreach($stuffSection as $stuffItem)
                 @if (!empty($stuffItem->content))
                     <h4>{{ $stuffItem->label ?? $stuffItem->member->name.' : '.$stuffItem->member->role }}</h4>
                     {!! $stuffItem->content !!}

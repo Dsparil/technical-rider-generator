@@ -50,4 +50,19 @@ class Rider extends Model
 
         return false;
     }
+
+    public function getAllStuff()
+    {
+        $result = [];
+
+        foreach (Stuff::enumValues() as $section => $label) {
+            $sectionContents = $this->stuff->filter->isSection($section);
+
+            if (count($sectionContents) > 0) {
+                $result[$section] = $sectionContents;
+            }
+        }
+
+        return $result;
+    }
 }
