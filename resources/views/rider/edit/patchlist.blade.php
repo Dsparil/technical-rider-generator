@@ -87,6 +87,7 @@
                 'instrument',
                 'microphone',
                 'microphone_stand',
+                'effect_insert',
                 'color'
             ],
 
@@ -109,7 +110,6 @@
             },
 
             getCardContent: function(item) {
-                console.log(item.color);
                 if (item.color === null) {
                     item.color = '#FFFFFF';
                 }
