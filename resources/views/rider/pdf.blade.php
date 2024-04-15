@@ -46,7 +46,7 @@
 
         <main>
             <center>
-                <img src="{{ $rider->band->base64Logo() }}" height="50%" />
+                <img src="{{ $rider->band->base64Logo() }}" height="50%" style="max-width: 90%" />
                 <br />
                 <br />
                 <h1>Fiche technique</h1>
