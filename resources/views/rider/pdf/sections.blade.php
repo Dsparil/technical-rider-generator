@@ -1,4 +1,4 @@
-<table border="0" cellspacing="10">
+<table border="0" cellspacing="10" style="width: 100%">
     <tr>
         <td style="vertical-align: top; text-align: justify;{{ (count($rider->sections) > 4)? 'width: 50%;' : '' }}">
             @foreach($rider->sections as $riderSection)
