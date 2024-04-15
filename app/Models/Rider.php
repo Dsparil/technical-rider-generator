@@ -73,17 +73,17 @@ class Rider extends Model
         $clone->push();
 
         foreach ($this->sections as $item) {
-            $cloned = $item->clone();
+            $cloned = $item->replicate();
             $clone->sections()->save($cloned);
         }
 
         foreach ($this->patchlists as $item) {
-            $cloned = $item->clone();
+            $cloned = $item->replicate();
             $clone->patchlists()->save($cloned);
         }
 
         foreach ($this->stuff as $item) {
-            $cloned = $item->clone();
+            $cloned = $item->replicate();
             $clone->stuff()->save($cloned);
         }
 
