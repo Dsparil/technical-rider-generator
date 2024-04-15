@@ -10,5 +10,6 @@
             <div style="margin-top: 0">{!! $riderSection->content !!}</div>
             @endforeach
         </td>
+        @endforeach
     </tr>
 </table>
