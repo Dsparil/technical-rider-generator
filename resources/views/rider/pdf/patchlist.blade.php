@@ -6,7 +6,7 @@
         <th>Micro</th>
         <th>Pied de micro</th>
     </tr>
-    @foreach($rider->patchlists as $patch)
+    @foreach($rider->patchlists->orderBy('number') as $patch)
     <tr style="background-color: {{ $patch->color }};">
         <td>{{ $patch->number }}</td>
         <td>{{ $patch->member->name }}</td>
