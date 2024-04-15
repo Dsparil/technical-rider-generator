@@ -68,7 +68,9 @@ class RiderController extends Controller
 
         $pdf = Pdf::loadView('rider.pdf', ['rider' => $rider]);
 
-        return $pdf->download($rider->band->name.'_rider_'.date('Ymd').'.pdf');
+        return $pdf->output();
+
+        //return $pdf->download($rider->band->name.'_rider_'.date('Ymd').'.pdf');
     }
 
     public function edit(?int $riderId, Request $request)
