@@ -90,6 +90,7 @@ class RiderController extends Controller
             'sections'  => Section::byRider($rider),
             'items'     => Item::getAllOrdered(),
             'members'   => Member::byBand($rider->band),
+            'patchlist' => Patchlist::byRider($rider)
         ]);
     }
 

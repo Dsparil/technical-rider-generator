@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col">
         <h3>Patchlist</h3>
-        <div class="row" data-patchlist="{{ $rider->patchlists->toJson() }}" data-colorlist="{{ json_encode(App\Models\Patchlist::COLORS) }}">
+        <div class="row" data-patchlist="{{ $patchlist->toJson() }}" data-colorlist="{{ json_encode(App\Models\Patchlist::COLORS) }}">
             <div class="col-12">
                 <div class="card mr-2 mb-2 bg-white">
                     <a name="newItem"></a>
@@ -24,7 +24,7 @@
                                     <label class="w-100">Type de micro : <input type="text" data-name="patchlist_microphone" class="form-control" /></label>
                                 </div>
                                 <div class="col-lg-1 col-sm-6">
-                                    <label class="w-100">Fond : <input type="color" data-name="patchlist_microphone" class="form-control" value="#FFFFFF" /></label>
+                                    <label class="w-100">Fond : <input type="color" list="patchlist_colors" data-name="patchlist_microphone" class="form-control" value="#FFFFFF" /></label>
                                 </div>
                                 <div class="col-lg-2 col-sm-6">
                                     <label class="w-100">Taille du stand de micro : <span class="micstand_selectbox" data-field="new-microphone_stand" data-object-name="patchlist"></span></label>
@@ -128,7 +128,7 @@
                     <label class="w-100">Type de micro : <input type="text" name="${this.getInputName(item, 'microphone')}" class="form-control" value="${item.microphone}" /></label>
                 </div>
                 <div class="col-lg-1 col-sm-6">
-                    <label class="w-100">Fond : <input type="color" name="${this.getInputName(item, 'color')}" class="form-control" value="${item.color}" /></label>
+                    <label class="w-100">Fond : <input type="color" list="patchlist_colors" name="${this.getInputName(item, 'color')}" class="form-control" value="${item.color}" /></label>
                 </div>
                 <div class="col-lg-2 col-sm-6">
                     <label class="w-100">Taille du stand de micro : ${document.getPatchlistStandSelectBox(this, 'microphone_stand', item, item.microphone_stand, this.objectName)}</label>
@@ -144,3 +144,13 @@
         $('span.micstand_selectbox').html(document.getPatchlistStandSelectBox(document.$patchlist, 'new-microphone_stand'));
     });
 </script>
+<datalist id="patchlist_colors">
+    <option value="#F0FF80"></option>
+    <option value="#8AFFFF"></option>
+    <option value="#85FF93"></option>
+    <option value="#CCFFCC"></option>
+    <option value="#FFC88A"></option>
+    <option value="#FFFFCC"></option>
+    <option value="#CCCC99"></option>
+    <option value="#FFCCCC"></option>
+</datalist>
