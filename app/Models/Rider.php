@@ -65,4 +65,28 @@ class Rider extends Model
 
         return $result;
     }
+
+    public function cloneAll(): self
+    {
+        $clone = $this->replicate();
+        $clone->title .= ' (copie)';
+        $clone->push();
+
+        foreach ($this->sections as $item) {
+            $cloned = $item->clone();
+            $clone->sections()->save($cloned);
+        }
+
+        foreach ($this->patchlists as $item) {
+            $cloned = $item->clone();
+            $clone->patchlists()->save($cloned);
+        }
+
+        foreach ($this->stuff as $item) {
+            $cloned = $item->clone();
+            $clone->stuff()->save($cloned);
+        }
+
+        return $clone;
+    }
 }

@@ -96,7 +96,9 @@ class RiderController extends Controller
 
     public function duplicate(?int $riderId)
     {
+        (Rider::findOrFail($riderId))->cloneAll();
 
+        return back();
     }
 
     public function delete(?int $riderId)
